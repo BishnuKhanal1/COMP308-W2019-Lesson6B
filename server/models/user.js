@@ -45,3 +45,14 @@ username: {
         collection = "users"
     }
 );
+
+//configure options for the UserSchema
+let options = ({
+    missingPasswordError: "Wrong / Missing Password"
+});
+
+userSchema.plugin(passportLocalMongoose, options);
+
+module.exports.user = mongoose.model('User', userSchema);
+
+
